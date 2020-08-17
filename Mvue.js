@@ -189,23 +189,9 @@ class Mvue {
 			new Compile(this.$el, this)
 
 			this.proxy(this.$data)
-
-			new Proxy(this, this.handler)
 		}
 	}
 	
-	let handler = {
-	  get (target, key, receiver) {
-	    target[key]
-	    return Reflect.get(target, key, receiver)
-	  },
-	  set (target, key, value, receiver) {
-	    console.log('set', key, value)
-	    return Reflect.set(target, key, value, receiver)
-	  }
-	}
-	
-
 	proxy(data) {
 		for (const key in data) {
 			Object.defineProperty(this, key, {
