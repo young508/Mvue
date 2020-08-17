@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h2>{{person.name}} --- {{person.age}}</h2>
+			<h3>{{person.fav}}</h3>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+			<h3>{{msg}}</h3>
+			<div v-text='msg'></div>
+			<div v-html='htmlStr'></div>
+			<input type="text" v-model="msg" />
+			<div>
+				<button v-on:click="btn">
+					on点击
+				</button>
+				<button @click="btn">
+					@点击
+				</button>
+			</div>
+			
+		</div>
+		
+	</body>
+	<script src="./Mvue.js"></script>
+	<script src="Observer.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		let vm = new Mvue({
+			el:'#app',
+			data:{
+				person:{
+					name:'小马哥',
+					age:'21',
+					fav:'姑娘'
+				},
+				msg:'学习MVVM原理',
+				htmlStr:"<b>bold</b>"
+			},
+			methods:{
+				btn(){
+					console.log(this)
+				}
+			}
+		})
+		
+	</script>
+</html>
